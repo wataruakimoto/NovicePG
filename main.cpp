@@ -1,4 +1,5 @@
 #include <Novice.h>
+#include "Scene.h"
 
 const char kWindowTitle[] = "LE2C_01_アキモト_ワタル";
 
@@ -7,6 +8,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
+
+	Scene* scene = new Scene();
+	scene->Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -25,6 +29,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+		scene->Update();
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -32,6 +38,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
+
+		scene->Draw();
 
 		///
 		/// ↑描画処理ここまで
